@@ -1,5 +1,5 @@
 /*
-  EdgeMind — ESP32-S3 On-Chip Edge AI Audio Processing
+  EdgeMind — ESP32-S3 On-Chip Edge AI Processing
   Starter firmware · Vishwakarma Awards 2026-27 (App ID: VK26-IITI-AHM-0463)
   Team: Akash S, Pranov Bhalaji AV, SenthilKumaran J
 

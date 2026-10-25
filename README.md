@@ -1,18 +1,21 @@
-# EdgeMind — ESP32-S3 On-Chip Edge AI Audio Processing
+# EdgeMind — ESP32-S3 On-Chip Edge AI Processing
 
 Vishwakarma Awards 2026–27 submission · App ID: **VK26-IITI-AHM-0463**
 
-Team: Akash S · Pranov Bhalaji AV · SenthilKumaran J  
-Faculty guide: Mr. S. Rajkumar, Assistant Professor, EEE, MVIT
+Team: Akash S · Pranov Bhalaji AV · SenthilKumaran J
 
 ## Overview
 
-EdgeMind is a battery-powered ESP32-S3 audio node with an INMP441 I²S MEMS microphone. Audio is captured locally; the intended design runs inference on the microcontroller and sends only the result to a phone or laptop over Wi-Fi.
+EdgeMind is a battery-powered ESP32-S3 edge-AI device with two input paths: audio captured locally by an INMP441 I²S MEMS microphone, and text or voice messages sent from a phone/laptop over Wi-Fi. Both inputs are intended to feed on-device inference on the ESP32-S3. Only the inference result is sent back to the phone/laptop over Wi-Fi.
 
 ```text
-[INMP441 mic] --I²S--> [ESP32-S3: capture + on-device inference]
-                                   |
-                                   +---- Wi-Fi POST ----> [phone/laptop]
+[INMP441 microphone] -- I²S audio -------------------+
+                                                     v
+[Phone/laptop] -- Wi-Fi text or voice message --> [ESP32-S3]
+                                                  [On-device
+                                                   inference]
+                                                     |
+[Phone/laptop] <-- Wi-Fi: result only ---------------+
 ```
 
 **Current limitation:** the checked-in firmware is still a Phase 1 prototype. `runInference()` currently uses a simple average-amplitude threshold; it is **not TensorFlow Lite Micro inference** and does not recognize keywords or sound events yet. The microphone capture and Wi-Fi POST path are retained as the working baseline.
