@@ -11,14 +11,14 @@ EdgeMind is a battery-powered ESP32-S3 edge-AI device with two input paths: audi
 ```text
 [INMP441 microphone] -- I²S audio -------------------+
                                                      v
-[Phone/laptop] -- Wi-Fi text or voice message --> [ESP32-S3]
+[Phone/laptop] -- Wi-Fi text or voice message (planned) --> [ESP32-S3]
                                                   [On-device
                                                    inference]
                                                      |
 [Phone/laptop] <-- Wi-Fi: result only ---------------+
 ```
 
-**Current limitation:** the checked-in firmware is still a Phase 1 prototype. `runInference()` currently uses a simple average-amplitude threshold; it is **not TensorFlow Lite Micro inference** and does not recognize keywords or sound events yet. The microphone capture and Wi-Fi POST path are retained as the working baseline.
+**Current limitation:** the checked-in firmware is still a Phase 1 prototype. `runInference()` currently uses a simple average-amplitude threshold; it is **not TensorFlow Lite Micro inference** and does not recognize keywords or sound events yet. The phone-to-device text/voice input path is not implemented either; only microphone capture and Wi-Fi POST-out are working.
 
 ## Hardware
 
@@ -47,6 +47,7 @@ model/                       Model integration notes and model assets
 - [x] Wi-Fi HTTP POST baseline
 - [ ] Add a compatible, converted model asset
 - [ ] Implement matching audio feature extraction and real TFLite Micro inference
+- [ ] Implement Wi-Fi listener to receive text/voice input from phone/laptop
 - [ ] Validate inference on ESP32-S3 (memory, latency, and recognition tests)
 - [ ] Enclosure and battery integration
 
