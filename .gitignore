@@ -3,3 +3,11 @@ secrets.h
 build/
 .vscode/
 *.bin
+
+# EdgeMind local credentials and generated firmware assets
+secrets.h
+**/secrets.h
+*.tflite
+*.bin
+build/
+.vscode/
